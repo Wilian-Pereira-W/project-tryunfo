@@ -89,14 +89,14 @@ class Form extends Component {
               type="checkbox"
               data-testid="trunfo-input"
               name="trunfo-input"
-              value={ cardTrunfo }
+              checked={ cardTrunfo }
               onChange={ onInputChange }
             />
           </label>
           <button
             disabled={ isSaveButtonDisabled }
             name="save-button"
-            type="submit"
+            type="button"
             data-testid="save-button"
             onClick={ onSaveButtonClick }
           >
