@@ -11,97 +11,108 @@ class Form extends React.Component {
       <div>
         <h1>Adicionar nova carta</h1>
         <form>
-          <label htmlFor="name-input">
+          <label htmlFor="cardName">
             Nome
             <input
               type="text"
               data-testid="name-input"
-              name="name-input"
+              name="name"
+              id="cardName"
               value={ cardName }
               onChange={ onInputChange }
             />
           </label>
-          <label htmlFor="description-input">
+          <label htmlFor="cardDescription">
             Descrição
-            <textarea
+            <input
+              type="textarea"
               data-testid="description-input"
-              name="description-input"
+              name="description"
+              id="cardDescription"
               value={ cardDescription }
               onChange={ onInputChange }
             />
           </label>
           Attr01
-          <label htmlFor="attr1-input">
+          <label htmlFor="cardAttr1">
             <input
               type="number"
               data-testid="attr1-input"
-              name="attr1-input"
+              name="attr1"
+              id="cardAttr1"
               value={ cardAttr1 }
               onChange={ onInputChange }
             />
           </label>
           Attr02
-          <label htmlFor="attr2-input">
+          <label htmlFor="cardAttr2">
             <input
               type="number"
               data-testid="attr2-input"
-              name="attr2-input"
+              name="attr2"
+              id="cardAttr2"
               value={ cardAttr2 }
               onChange={ onInputChange }
             />
           </label>
           Attr03
-          <label htmlFor="attr3-input">
+          <label htmlFor="cardAttr3">
             <input
               type="number"
               data-testid="attr3-input"
-              name="attr3-input"
+              name="attr3"
+              id="cardAttr3"
               value={ cardAttr3 }
               onChange={ onInputChange }
             />
           </label>
           Imagem
-          <label htmlFor="image-input">
+          <label htmlFor="cardImage">
             <input
               type="text"
               data-testid="image-input"
-              name="image-input"
+              name="image"
+              id="cardImage"
               value={ cardImage }
               onChange={ onInputChange }
             />
           </label>
           Raridade
-          <label htmlFor="rare-input">
+          <label htmlFor="cardRare">
             <select
               value={ cardRare }
               onChange={ onInputChange }
               data-testid="rare-input"
-              name="rare-input"
+              name="rare"
+              id="cardRare"
             >
-              <option>normal</option>
-              <option>raro</option>
-              <option>muito raro</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
             </select>
           </label>
-          <label htmlFor="trunfo-input">
+          <label htmlFor="cardTrunfo">
             Super Trybe Trunfo
             <input
               type="checkbox"
               data-testid="trunfo-input"
-              name="trunfo-input"
+              name="trunfo"
+              id="cardTrunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
             />
           </label>
+
           <button
             disabled={ isSaveButtonDisabled }
-            name="save-button"
-            type="button"
+            type="submit"
             data-testid="save-button"
             onClick={ onSaveButtonClick }
+            id="save"
           >
             Salvar
           </button>
+
         </form>
       </div>
     );
