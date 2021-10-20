@@ -57,6 +57,7 @@ class App extends React.Component {
       cardAttr2: '0',
       cardAttr3: '0',
       cardRare: 'normal',
+      hasTrunfo: cards.some((card) => card.cardTrunfo),
     });
   }
 
