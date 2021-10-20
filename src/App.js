@@ -5,8 +5,6 @@ import Card from './components/Card';
 class App extends React.Component {
   constructor() {
     super();
-    this.onInputChange = this.onInputChange.bind(this);
-    this.validarCamposFomulario = this.validarCamposFomulario.bind(this);
 
     this.state = {
       cardName: '',
@@ -17,8 +15,14 @@ class App extends React.Component {
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
+      hasTrunfo: false,
       isSaveButtonDisabled: true,
+      cards: [],
     };
+
+    this.onInputChange = this.onInputChange.bind(this);
+    this.validarCamposFomulario = this.validarCamposFomulario.bind(this);
+    this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
   }
 
   onInputChange({ target }) {
@@ -28,8 +32,33 @@ class App extends React.Component {
     this.setState({ [id]: value }, this.validarCamposFomulario);
   }
 
-  onSaveButtonClick() {
+  onSaveButtonClick(event) {
+    event.preventDefault();
+    const { cardName, cardDescription, cardImage,
+      cardAttr1, cardAttr2, cardAttr3, cardRare, cardTrunfo, cards,
+    } = this.state;
 
+    cards.push({
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    });
+
+    this.setState({
+      cardName: '',
+      cardDescription: '',
+      cardImage: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardRare: 'normal',
+      hasTrunfo: cards.some((card) => card.cardTrunfo),
+    });
   }
 
   validarCamposFomulario() {
